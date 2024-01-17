@@ -9,6 +9,20 @@
 /web/sites/*/*settings*.php
 /web/sites/*/*services*.yml
 
+# Editor and language files.
+.idea/
+.project/
+.bundle/
+.vscode
+
+# Backup files.
+*.sql
+*.gz
+*.bak
+
+# Ignore node modules
+node_modules
+
 # Ignore paths that may contain user-generated content
 /web/sites/*/files
 /web/sites/*/public
