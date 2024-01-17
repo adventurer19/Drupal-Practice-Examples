@@ -1,0 +1,7 @@
+niki_theme.custom_template:
+  path: '/rxp-render/custom-template'
+  defaults:
+    _controller: '\Drupal\niki_theme\Controller\RenderController::renderMyCustomTwig'
+    _title: 'Custom template'
+  requirements:
+    _access: 'TRUE'

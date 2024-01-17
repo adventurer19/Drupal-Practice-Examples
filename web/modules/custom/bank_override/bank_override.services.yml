@@ -1,0 +1,5 @@
+services:
+  bank_override.overrider:
+    class: Drupal\bank_override\Config\ConfigExampleOverrides
+    tags:
+      - {name: config.factory.override, priority: 5}

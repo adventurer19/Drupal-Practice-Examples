@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for azure_twig module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function azure_twig_theme($existing, $type, $theme, $path): array {
+  return [
+    'azure_twig_block' => [
+      'render element' => 'element',
+      'template' => 'azure--twig-block',
+      'variables' => [
+        'name' => NULL,
+        'age' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function azure_twig_preprocess_azure_twig_block(&$variables) {
+  /** @var \Drupal\azure_twig\Utils\AzureHelper $azure_helper */
+  $azure_helper = \Drupal::service('azure_twig.helper');
+}
+

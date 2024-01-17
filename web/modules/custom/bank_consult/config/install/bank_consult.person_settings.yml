@@ -1,0 +1,11 @@
+consultant_name: 'John Doe'
+# The name of the bank consultant.
+consultant_email: 'john.doe@example.com'
+# The email address of the bank consultant.
+consultant_id: 12345
+# The ID of the bank consultant.
+additional_notes: 'Experienced consultant with expertise in banking.'
+# Any additional notes or comments about the consultant.
+enabled: 1
+# 1 represents enabled, 0 represents disabled.
+langcode: en

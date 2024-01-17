@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * Implements hook_update_N().
+ */
+function bank_consult_advertiser_update_10001(&$sandbox) {
+  // Here is an example how to install entity of already installed module.
+  $entity_type_manager = \Drupal::entityTypeManager();
+  $entity_type_manager->clearCachedDefinitions();
+  try {
+    $advertiser_entity_definition = $entity_type_manager->getDefinition('advertiser');
+    $connection = \Drupal::database();
+    $base_table = $advertiser_entity_definition->getBaseTable();
+    if (!$connection->schema()->tableExists($base_table)) {
+      $update_entity_type_manager = \Drupal::entityDefinitionUpdateManager();
+      $update_entity_type_manager->installEntityType($advertiser_entity_definition);
+    }
+    else {
+      return 'Process Status entity already exists';
+    }
+  }
+  catch (Exception $e) {
+    \Drupal::logger('bank_consult_advertiser')->error($e->getMessage());
+  }
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function bank_consult_advertiser_update_10010(&$sandbox) {
+  $entity_type_manager = \Drupal::entityTypeManager();
+  $entity_type_manager->clearCachedDefinitions();
+  /** @var \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager */
+  $entity_field_manager = \Drupal::service('entity_field.manager');
+  $update_entity_type_manager = \Drupal::entityDefinitionUpdateManager();
+  try {
+
+    \Drupal::entityDefinitionUpdateManager()->applyUpdates();
+
+
+  }
+  catch (Exception $e) {
+    \Drupal::logger('bank_consult_advertiser')->error($e->getMessage());
+  }
+}

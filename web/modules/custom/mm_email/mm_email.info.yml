@@ -1,0 +1,3 @@
+type: module
+name: 'MM email'
+core_version_requirement: ^10

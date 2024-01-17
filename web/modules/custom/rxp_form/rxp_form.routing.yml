@@ -1,0 +1,7 @@
+rxp_form.rxp_modal:
+  path: '/render-modal'
+  defaults:
+    _controller: '\Drupal\rxp_form\Controller\FormController::modalForm'
+    _title: 'Modal Form'
+  requirements:
+    _access: 'TRUE'

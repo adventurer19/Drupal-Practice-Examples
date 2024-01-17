@@ -1,0 +1,7 @@
+otp_menu_links.config.list:
+  path: '/admin/example'
+  defaults:
+    _controller: '\Drupal\opt_menu_links\Controller\ExampleController::content'
+    _title: 'Hello World'
+  requirements:
+    _permission: 'access content'

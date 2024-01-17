@@ -1,0 +1,21 @@
+bank_consult_contextual_links.node_contextual_links_json:
+  path: "/api/node/contextual/links/{node}"
+  defaults:
+    _controller: '\Drupal\bank_consult_contextual_links\Controller\JsonController::content'
+    _title: Node Contextual Links Json
+  requirements:
+    _permission: 'administer site configuration'
+    node: \d+
+  options:
+#    check what node_operation_route does
+#    _node_operation_route: TRUE
+    parameters:
+      node:
+        type: entity:node
+bank_consult_contextual_links.index:
+  path: 'bank-consult-contextual-links'
+  defaults:
+    _controller: '\Drupal\bank_consult_contextual_links\Controller\JsonController::index'
+    _title: Contextual links Render Element
+  requirements:
+    _permission: 'administer site configuration'

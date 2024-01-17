@@ -1,0 +1,50 @@
+rxp_render.my_coffe:
+  path: '/my-coffe'
+  defaults:
+    _controller: 'rxp_render.coffe_helper:renderCoffer'
+    _title: 'My Coffe'
+  requirements:
+    _access: 'TRUE'
+rxp_render.index:
+  path: '/renderer'
+  defaults:
+    _controller: '\Drupal\rxp_render\Controller\RenderController::index'
+    _title: 'Render'
+  requirements:
+    _access: 'TRUE'
+rxp_render.modal_test:
+  path: '/rxp-render/modal-test'
+  defaults:
+    _controller: '\Drupal\rxp_render\Controller\RenderController::modalContent'
+    _title: 'Modal Content'
+  requirements:
+    _permission: 'access content'
+rxp_render.modal_content:
+  path: '/rxp-render/modal-content'
+  defaults:
+    _controller: '\Drupal\rxp_render\Controller\RenderController::modalTestDemo'
+    _title: 'Modal Test Demo'
+  requirements:
+    _permission: 'access content'
+rxp_render.demo_controller:
+  path: '/rxp-render/demo-controller'
+  defaults:
+    _controller: '\Drupal\rxp_render\Controller\DemoController::index'
+    _title: 'Demo Controller'
+  requirements:
+    _access: 'TRUE'
+rxp_render.demo_controller_main:
+  path: '/rxp-render/demo-controller/main'
+  defaults:
+    _controller: '\Drupal\rxp_render\Controller\DemoController::main'
+    _title: 'Demo Controller'
+  requirements:
+    _access: 'TRUE'
+rxp_render.demo_controller_particular_template:
+  path: '/rxp-render/demo-controller/particular-template'
+  defaults:
+    _controller: '\Drupal\rxp_render\Controller\DemoController::renderParticularTemplate'
+    _title: 'Demo Controller'
+  requirements:
+    _access: 'TRUE'
+

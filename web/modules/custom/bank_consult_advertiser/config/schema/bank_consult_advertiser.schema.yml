@@ -1,0 +1,10 @@
+advertiser.settings:
+  type: config_object
+  label: 'Advertiser settings'
+  mapping:
+    emails:
+      type: sequence
+      label: 'List of emails'
+      sequence:
+        type: label
+        label: Email text

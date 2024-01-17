@@ -1,0 +1,94 @@
+<?php
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_create().
+ */
+function mm_email_node_create(NodeInterface $node) {
+  if ($node->bundle() === 'page') {
+    $key = 'create';
+    _mm_email_email_sender($node,$key);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function mm_email_node_update(NodeInterface $node) {
+  if ($node->bundle() === 'page') {
+    $key = 'update';
+    _mm_email_email_sender($node,$key);
+  }
+}
+
+function _mm_email_email_sender(NodeInterface $node,string $key) {
+  $config = \Drupal::config('custom_emails_config.settings');
+  $emails = array_merge([\Drupal::currentUser()->getEmail()],$config->get('admin_emails'));
+  foreach ($emails as $email) {
+    $mailManager = \Drupal::service('plugin.manager.mail');
+    $module = 'mm_email';
+    $to = $email;
+    $params['message'] = 'data';
+    $params['node'] = $node;
+    $params['node_title'] = 'data';
+    $langcode = \Drupal::currentUser()->getPreferredLangcode();
+    $send = TRUE;
+    $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+  }
+
+}
+
+/**
+ * Implements hook_mail().
+ */
+function mm_email_mail($key, &$message, $params) {
+  $options = [
+    'langcode' => $message['langcode'],
+  ];
+  /** @var NodeInterface $node */
+  $node = $params['node'];
+  $message['from'] = \Drupal::config('custom_emails_config.settings')
+    ->get('admin_emails');
+  $message['subject'] = t('Article created: @title', ['@title' => $params['node_title']], $options);
+
+  /** @var \Drupal\Core\Render\RendererInterface $renderer */
+  $renderer = \Drupal::service('renderer');
+  switch ($key) {
+    case 'create':
+      $element = [
+        '#theme' => 'email_template_theme_hook',
+        '#node_label' => $node->label(),
+        '#node_body' => $node->hasField('body') ? $node->get('body')->value : 'Empty body',
+      ];
+      $message['body'][] = $renderer->render($element);
+
+      break;
+    case 'update':
+      $element = [
+        '#theme' => 'email_template_theme_hook',
+        '#node_label' => $node->label(),
+        '#node_body' => 'This is update',
+        '#context' => $key,
+      ];
+      $message['body'][] = $renderer->render($element);
+
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function mm_email_theme($existing, $type, $theme, $path): array {
+  return [
+    'email_template_theme_hook' => [
+      'template' => 'mm-email-email-theme-hook',
+      'variables' => [
+        'context' => 'Default operation',
+        'node_label' => 'Default label',
+        'node_body' => 'Default data',
+      ],
+    ],
+  ];
+}

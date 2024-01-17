@@ -1,0 +1,7 @@
+bank_consult_controller.main_person_settings:
+  path: /admin/config/bank-consult/show-language-override
+  defaults:
+    _title: Person Settings Language Override
+    _controller: '\Drupal\bank_consult_controller\Controller\BankConsultController::index'
+  requirements:
+    _access: 'TRUE'

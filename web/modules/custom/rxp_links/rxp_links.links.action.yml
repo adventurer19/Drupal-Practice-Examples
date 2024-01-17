@@ -1,0 +1,8 @@
+#rxp_links.action1:
+#  route_name: rxp_links.route1
+#  title: 'Custom Action 1'
+#  description: 'Description of Custom Action 1'
+#  appears_on:
+#    - node.add_page
+##  parent_id: system.admin_structure
+#  weight: 100

@@ -1,0 +1,6 @@
+#rxp_render.main:
+#  title: 'Node Add'
+#  description: 'Just a description value.'
+##  parent: system.admin_config_development
+#  route_name: rxp_form.rxp_modal
+#  menu_name: system.admin_config_development

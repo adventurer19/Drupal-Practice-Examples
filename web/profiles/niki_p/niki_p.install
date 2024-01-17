@@ -1,0 +1,34 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the niki_p install profile.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+function niki_p_install() {
+  // First, do everything in standard profile.
+  include_once DRUPAL_ROOT . '/core/profiles/standard/standard.install';
+  standard_install();
+  // Can add code in here to make nodes, terms, etc.
+}
+//
+//function niki_p_install_tasks(&$install_state) {
+//  $task = [];
+//  $task['install_set_default_theme'] = [
+//    'display_name' => 'niki',
+//    'display' => TRUE,
+//    'type' => 'batch',
+//    'run' => INSTALL_TASK_RUN_IF_NOT_COMPLETED,
+//  ];
+//  return $task;
+//}
+//
+//function install_set_default_theme() {
+//  echo 123;
+//}

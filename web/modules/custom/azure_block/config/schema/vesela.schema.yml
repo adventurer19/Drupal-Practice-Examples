@@ -1,0 +1,7 @@
+block.settings.azure_block:
+  type: block_settings
+  label: 'Azure block'
+  mapping:
+    fax_number:
+      type: label
+      label: 'Fax number'

@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ */
+
+use Drupal\rxp_install\Form\RXPInstallForm;
+
+/**
+ * Implements hook_install().
+ */
+function rxp_install_install(): void {
+  print_initial_message();
+  module_set_weight('rxp_install', 1);
+}
+
+/**
+ * Helper callback to print initial msg.
+ */
+function print_initial_message(): void {
+  $message = t("This module has a form with id: @form_id",
+    [
+      '@form_id' => RXPInstallForm::RXP_INSTALL_FORM_ID,
+    ]);
+  \Drupal::messenger()->addMessage($message);
+}

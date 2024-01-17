@@ -1,0 +1,5 @@
+name: RXP Forms
+type: module
+core_version_requirement: ^10
+description: 'This module is for training and learning purposes'
+package: RXP

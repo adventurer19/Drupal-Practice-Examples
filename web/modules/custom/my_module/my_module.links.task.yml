@@ -1,0 +1,9 @@
+#my_module.config_settings:
+#  route_name: my_module.config_settings
+#  title: My module settings
+#  base_route: my_module.config_settings
+#
+#translate.my_module.config_settings:
+#  route_name: my_module.config_settings
+#  title: Translate
+#  base_route: my_module.config_settings

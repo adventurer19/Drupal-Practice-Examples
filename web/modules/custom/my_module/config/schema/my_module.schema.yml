@@ -1,0 +1,33 @@
+# Schema for my_module.settings configuration
+my_module.settings:
+  type: config_object
+  label: 'My Module Settings'
+  mapping:
+    enabled:
+      type: boolean
+      label: 'Enabled'
+      description: 'Whether the module is enabled or not.'
+    threshold:
+      type: integer
+      label: 'Threshold'
+      description: 'A numeric threshold value.'
+    message:
+      type: string
+      label: 'Message'
+      description: 'The greeting message displayed by the module.'
+    max_items:
+      type: integer
+      label: 'Max Items'
+      description: 'The maximum number of items allowed.'
+#    allowed_roles:
+#      type: sequence
+#      label: 'Allowed Roles'
+#      description: 'Roles that have access to this module.'
+#      sequence:
+#        - type: string
+#          label: 'Role'
+#          description: 'A role that has access.'
+    default_color:
+      type: string
+      label: 'Default Color'
+      description: 'The default color value in hexadecimal format.'

@@ -1,0 +1,11 @@
+global-styling:
+  version: VERSION
+  js:
+    js/script.js: {}
+  css:
+#    base:
+#    layout:
+#    component:
+#    state:
+    theme:
+      css/style.css: {}

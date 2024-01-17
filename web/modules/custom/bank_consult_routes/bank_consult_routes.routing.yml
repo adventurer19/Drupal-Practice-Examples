@@ -1,0 +1,2 @@
+route_callbacks:
+  - '\Drupal\bank_consult_routes\Routing\BankConsultDynamicRoute::getDynamicRoute'

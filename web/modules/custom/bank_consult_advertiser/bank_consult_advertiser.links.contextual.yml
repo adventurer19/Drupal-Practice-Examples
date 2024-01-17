@@ -1,0 +1,8 @@
+entity.advertiser.edit_form:
+  route_name: entity.advertiser.edit_form
+  group: advertiser
+  title: 'Edit'
+  class: 'Drupal\bank_consult_advertiser\Plugin\Menu\ContextualLink\AdvertiserContextualLink'
+  appears_on_bundles:
+    - mvp
+    - test

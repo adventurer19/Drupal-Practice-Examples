@@ -1,0 +1,4 @@
+name: Route Options Module
+type: module
+core_version_requirement: ^9 || ^10
+description: 'Just for training purposes'

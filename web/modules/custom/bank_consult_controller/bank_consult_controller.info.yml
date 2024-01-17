@@ -1,0 +1,5 @@
+name: Bank Consult Controller
+type: module
+core_version_requirement: ^9 || ^10
+dependencies:
+  - bank_consult:bank_consult

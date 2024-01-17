@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function bank_consult_contextual_links_theme($existing, $type, $theme, $path) {
+  return [
+    'bank_consult_contextual' => [
+      'render element' => 'element',
+//      'variables' => [
+//        'title' => NULL,
+//        'demo' => 1,
+//      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function bank_consult_contextual_links_preprocess(&$variables, $hook) {
+  $a = 1;
+}

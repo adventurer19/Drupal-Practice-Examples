@@ -1,0 +1,21 @@
+<div class="myElement">
+    <div class="randomNumber">Random Number: {{ element['#random_number'] }}</div>
+    {{ dump() }}
+    {{ element['#description'] }}
+    <p>
+        Link -> <a href="{{ element['#link'].toString()}}"> Click on me</a>
+
+    </p>
+
+    {{ element.link }}
+
+    We print the element
+    {{ element }}
+    Link
+    {{ element.link }}
+    Description
+    {{ element.description }}
+    #pre_render addition
+    {{ element.pre_render_addition }}
+    Random number (not printed when we printed the whole element)
+{{ element['#random_number'] }}

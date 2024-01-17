@@ -1,0 +1,5 @@
+name: RXP CONFIG REWRITE
+type: module
+core_version_requirement: ^10
+#dependencies:
+#  - config_rewrite:config_rewrite

@@ -1,0 +1,4 @@
+bank_consult_contextual_links.node_contextual_links_json:
+  route_name: bank_consult_contextual_links.node_contextual_links_json
+  group: node
+  title: JsonApi

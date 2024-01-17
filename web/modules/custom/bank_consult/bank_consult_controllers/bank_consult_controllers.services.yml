@@ -1,0 +1,5 @@
+services:
+  bank_consult_controllers.param_converter:
+    class: Drupal\bank_consult_controllers\Routing\ParamConverter
+    tags:
+      - { name: paramconverter }

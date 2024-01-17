@@ -1,0 +1,15 @@
+rxp_links.route1:
+  path: '/custom-example/route1'
+  defaults:
+    _controller: '\Drupal\rxp_links\Controller\CustomExampleController::route1'
+    _title: 'Custom Route 1'
+  requirements:
+    _permission: 'administer site configuration'
+
+rxp_links.route2:
+  path: '/custom-example/route2'
+  defaults:
+    _controller: '\Drupal\rxp_links\Controller\CustomExampleController::route2'
+    _title: 'Custom Route 2'
+  requirements:
+    _permission: 'administer site configuration'

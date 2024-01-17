@@ -1,0 +1,23 @@
+<?php
+
+
+/**
+ * Implements hook_install().
+ */
+function example_install($is_syncing) {
+  $state_api = \Drupal::state();
+  $state_api->set('name',t('Nikolay'));
+  \Drupal::messenger()->addMessage($state_api->get('name'));
+  /** @var \Drupal\example\Utils\ExampleHelper $example_helper */
+  $example_helper =  \Drupal::service('example.helper');
+  \Drupal::messenger()->addMessage($example_helper::MODULE_NAME);
+
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function example_uninstall($is_syncing) {
+  \Drupal::state()->delete('name');
+  \Drupal::messenger()->addMessage(t('Module example is uninstalled.'));
+}

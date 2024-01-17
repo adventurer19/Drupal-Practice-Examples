@@ -1,0 +1,26 @@
+rxp_install.install_form:
+  requirements:
+    _access: 'TRUE'
+  defaults:
+    _form: '\Drupal\rxp_install\Form\RXPInstallForm'
+    _title_callback: 'rxp_install.page_title_helper:generateTitle'
+    _title: 'This is default title'
+    _title_arguments:
+      title: RXP title
+    _title_context: 'This is an example context'
+    _nikolay: '123'
+
+  path: '/rxp-install'
+rxp_install.install_entity_view:
+  path: '/rxp-install/entity-view/{node}'
+  defaults:
+    # her the pattern expects node type and its corresponding view display
+    _entity_view: 'node.rss'
+  requirements:
+    _access: 'TRUE'
+rxp_install.install_entity_form:
+  path: '/rxp-install/entity-form'
+  defaults:
+    _entity_form: 'node_type.add'
+  requirements:
+    _access: 'TRUE'

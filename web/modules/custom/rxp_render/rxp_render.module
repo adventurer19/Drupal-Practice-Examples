@@ -1,0 +1,82 @@
+<?php
+
+/**
+ * @file
+ */
+
+use Drupal\Component\Utility\Random;
+
+/**
+ * Implements hook_theme().
+ */
+function rxp_render_theme($existing, $type, $theme, $path) {
+  return [
+    'rxp_render_theme_template' => [
+      'render element' => 'children',
+      'template' => 'rxp_render-theme',
+      'variables' => [
+        'title' => 'This is just default title.',
+      ],
+    ],
+    'my_element' => [
+      'render element' => 'element',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function rxp_render_preprocess_my_element(&$variables) {
+// $variables['element']['description'] = $variables['element']['#description'];
+  $a = 1;
+
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function rxp_render_theme_suggestions_rxp_render_theme_template(array $variables): array {
+  $data = new Random();
+  $suggestion = [];
+  for ($i = 0; $i < 10; $i++) {
+    if (isset($variables['theme_hook_original'])) {
+      $suggestion[] = $variables['theme_hook_original'] . $data->string(5);
+    }
+  }
+  return $suggestion;
+}
+
+// node , view , field
+// extend base ->  theme
+
+//hook_theme_suggestions_alter
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function rxp_render_theme_suggestions_alter(array &$suggestions, array $variables, $hook): void {
+  $a = 1;
+  // This hook loops through all of available theme suggestions.
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function rxp_render_theme_suggestions_rxp_render_theme_template_alter(array &$suggestions, array $variables): array {
+  if (!\Drupal::currentUser()->isAnonymous()) {
+    $suggestions = [];
+    $suggestions[] = 'rxp_render_theme_template__anonymous';
+  }
+  return $suggestions;
+}
+
+/**
+ * Implements hook_preprocess_().
+ */
+function rxp_render_preprocess_rxp_render_theme_template(&$variables, $hook) {
+  if (!\Drupal::currentUser()->isAnonymous()) {
+    $variables['name'] = 'Nikolay';
+  }
+  $a = 1;
+}

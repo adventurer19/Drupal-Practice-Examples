@@ -1,0 +1,27 @@
+name: Star Craft Theme
+type: theme
+core_version_requirement: ^9 || ^10
+description: 'My first theme, just for test and training purposes.'
+libraries:
+  - star_craft/star_craft.main_library
+base theme: olivero
+regions:
+  branding: Branding
+  # part of the header.
+  navigation: Navigation
+  # part of the header.
+  search: Search
+  # part of the header.
+  featured: Featured
+  # part of section featured.
+  content: Content
+  # part of the main.
+  right_sidebar: Right sidebar
+  # part of the main.
+  left_sidebar: Left sidebar
+  # part of the main.
+  footer_first: Footer First
+  # part of the footer.
+  footer_second: Footer Second
+  # part of the footer.
+

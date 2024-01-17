@@ -1,0 +1,26 @@
+example.video_json:
+  path: '/video/{video}'
+  defaults:
+    _controller: '\Drupal\example\Controller\ExampleController:index'
+    _title: 'Example Controller'
+  requirements:
+    _access: 'TRUE'
+  options:
+    parameters:
+      video:
+        type: entity:media
+example.main:
+  path: '/example-main'
+  defaults:
+    _controller: '\Drupal\example\Controller\ExampleController:main'
+    _title: 'Example Controller'
+  requirements:
+    _access: 'TRUE'
+example.hello:
+  path: '/example-hello'
+  defaults:
+    _controller: '\Drupal\example\Controller\ExampleController:hello'
+    _title: 'Example Controller'
+  requirements:
+    _access: 'TRUE'
+

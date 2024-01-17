@@ -1,0 +1,9 @@
+# my_module.settings
+enabled: true
+threshold: 10
+message: 'Hello, Drupal!'
+max_items: 5
+allowed_roles:
+  - authenticated
+  - administrator
+default_color: '#336699'

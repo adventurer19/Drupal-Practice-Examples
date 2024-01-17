@@ -1,0 +1,7 @@
+niki_callbacks.main:
+  path: '/trusted-callbacks'
+  defaults:
+    _controller: '\Drupal\niki_callbacks\Controller\NikiController::main'
+    _title: 'Trusted Callbacks'
+  requirements:
+    _permission: 'administer site configuration'

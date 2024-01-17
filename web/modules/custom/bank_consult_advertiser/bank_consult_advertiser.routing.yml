@@ -1,0 +1,9 @@
+bank_consult_advertiser.configuration_settings:
+  path: '/bank-consult-config'
+  defaults:
+    _form: 'Drupal\bank_consult_advertiser\Form\AdvertiserSettings'
+    _title: Bank Consult Advertiser Settings
+  requirements:
+    _role: administrator
+  options:
+    _admin_route: true

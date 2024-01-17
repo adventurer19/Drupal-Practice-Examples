@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Contains bank_consult_queue module file.
+ */
+
+use Drupal\bank_consult_queue\QueueHandler;
+use Drupal\taxonomy\TermInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_create().
+ */
+function bank_consult_queue_taxonomy_term_create(TermInterface $entity) {
+  return \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(QueueHandler::class)
+    ->process($entity);
+}

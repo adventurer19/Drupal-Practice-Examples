@@ -1,0 +1,4 @@
+type: module
+name: Bank Consult Contextual links
+description: Module with training purpose to show examples of contextual links
+core_version_requirement: ^10

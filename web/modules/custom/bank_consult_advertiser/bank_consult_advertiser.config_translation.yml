@@ -1,0 +1,5 @@
+advertiser.settings:
+  title: 'Advertised settings'
+  base_route_name: bank_consult_advertiser.configuration_settings
+  names:
+    - advertiser.settings

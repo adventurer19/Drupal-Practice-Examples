@@ -1,0 +1,3 @@
+services:
+  rxp_install.page_title_helper:
+    class: '\Drupal\rxp_install\Utils\RXPPageTitleHandler'

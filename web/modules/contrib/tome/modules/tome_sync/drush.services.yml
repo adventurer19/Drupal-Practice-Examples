@@ -1,0 +1,50 @@
+services:
+  tome_sync.clean_files_command:
+    class: Drupal\tome_sync\Commands\CleanFilesCommand
+    arguments: ['@tome_sync.storage.content', '@config.storage.sync', '@tome_sync.file_sync', '@file_system']
+    tags:
+      - { name: console.command }
+      - { name: drush.command }
+  tome_sync.export_command:
+    class: Drupal\tome_sync\Commands\ExportCommand
+    arguments: ['@tome_sync.exporter', '@entity_type.manager', '@event_dispatcher']
+    tags:
+      - { name: console.command }
+      - { name: drush.command }
+  tome_sync.export_content_command:
+    class: Drupal\tome_sync\Commands\ExportContentCommand
+    arguments: ['@tome_sync.exporter', '@entity_type.manager', '@event_dispatcher']
+    tags:
+      - { name: console.command }
+      - { name: drush.command }
+  tome_sync.import_command:
+    class: Drupal\tome_sync\Commands\ImportCommand
+    arguments: ['@tome_sync.importer', '@entity_type.manager', '@state']
+    tags:
+      - { name: console.command }
+      - { name: drush.command }
+  tome_sync.delete_content_command:
+    class: Drupal\tome_sync\Commands\DeleteContentCommand
+    arguments: ['@tome_sync.importer', '@entity_type.manager', '@state', '@config.installer']
+    tags:
+      - { name: console.command }
+      - { name: drush.command }
+  tome_sync.import_partial_command:
+    class: Drupal\tome_sync\Commands\ImportPartialCommand
+    arguments: ['@tome_sync.importer', '@entity_type.manager', '@state', '@tome_sync.content_hasher']
+    tags:
+    - { name: console.command }
+    - { name: drupal.command }
+    - { name: drush.command }
+  tome_sync.import_complete_command:
+    class: Drupal\tome_sync\Commands\ImportCompleteCommand
+    arguments: ['@event_dispatcher']
+    tags:
+      - { name: console.command }
+      - { name: drush.command }
+  tome_sync.import_content_command:
+    class: Drupal\tome_sync\Commands\ImportContentCommand
+    arguments: ['@tome_sync.importer', '@entity_type.manager', '@state']
+    tags:
+      - { name: console.command }
+      - { name: drush.command }

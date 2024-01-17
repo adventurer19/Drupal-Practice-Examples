@@ -1,0 +1,13 @@
+bank_consult.person_settings:
+  type: config_object
+  mapping:
+    consultant_name:
+      type: label
+      label: 'Consultant name'
+      translation context: 'Message to print yolo'
+    consultant_email:
+      type: label
+      label: 'Consultant email address'
+    additional_notes:
+      type: text
+      label: 'Additional notes'

@@ -1,0 +1,4 @@
+services:
+  rxp_email.email_controller:
+    class: '\Drupal\rxp_email\Utils\EmailController'
+    arguments: ['@plugin.manager.mail']

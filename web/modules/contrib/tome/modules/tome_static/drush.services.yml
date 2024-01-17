@@ -1,0 +1,19 @@
+services:
+  tome_static.static_command:
+    class: Drupal\tome_static\Commands\StaticCommand
+    arguments: ['@tome_static.generator', '@state']
+    tags:
+      - { name: console.command }
+      - { name: drupal.command }
+  tome_static.static_export_path_command:
+    class: Drupal\tome_static\Commands\StaticExportPathCommand
+    arguments: ['@tome_static.generator', '@state', '@tome_static.request_preparer']
+    tags:
+      - { name: console.command }
+      - { name: drupal.command }
+  tome_static.preview_command:
+    class: Drupal\tome_static\Commands\StaticPreviewCommand
+    arguments: ['@tome_static.generator']
+    tags:
+      - { name: console.command }
+      - { name: drupal.command }

@@ -1,0 +1,7 @@
+rxp_forms.person_consult_settings:
+  path: 'person-consult-settings'
+  defaults:
+    _title: 'PersonConsultSettingsForm'
+    _form: '\Drupal\rxp_forms\Form\PersonConsultSettingsForm'
+  requirements:
+    _access: 'TRUE'

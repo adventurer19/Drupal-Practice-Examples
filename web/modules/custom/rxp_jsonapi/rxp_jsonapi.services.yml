@@ -1,0 +1,8 @@
+services:
+  plugin.manager.jsonapi:
+    class: Drupal\rxp_jsonapi\JsonApiPluginManager
+    parent: default_plugin_manager
+  rxp_jsonapi.route_subscriber:
+    class: Drupal\rxp_jsonapi\Routing\JsonApiRouteSubscriber
+    tags:
+      - { name: event_subscriber }

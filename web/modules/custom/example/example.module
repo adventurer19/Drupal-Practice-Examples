@@ -1,0 +1,12 @@
+<?php
+
+use Drupal\Core\Link;
+
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function example_media_insert(\Drupal\Core\Entity\EntityInterface $entity) {
+//  $link = Link::fromTextAndUrl('LinkTitle', Url::fromRoute('my_module.my_route'));
+//  $link->toString();
+}

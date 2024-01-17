@@ -1,0 +1,7 @@
+bank_consult_jsonapi.index:
+  path: '/bank-api'
+  defaults:
+    _controller: 'Drupal\bank_consult_jsonapi\Controller\BankJsonController::content'
+    _title: 'Api'
+  requirements:
+    _access: 'TRUE'

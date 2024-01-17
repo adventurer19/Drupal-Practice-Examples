@@ -1,0 +1,21 @@
+route_callbacks:
+  - '\Drupal\route_options\Routing\JJrouting::routes'
+
+route_options.first:
+  path: '/foo/{nikolay}'
+  defaults:
+    _controller: \Drupal\route_options\Controller\RouteOptionsController::index
+    _title: 'Index'
+  requirements:
+    _access: 'TRUE'
+  options:
+    parameters:
+      nikolay:
+
+route_options.user:
+  path: '/example/{name}'
+  defaults:
+    _controller: '\Drupal\route_options\Controller\RouteOptionsController::index'
+  requirements:
+    _permission: 'access content'
+    name: '[a-zA-Z]+'

@@ -1,0 +1,2 @@
+route_callbacks:
+  - '\Drupal\rxp_jsonapi\Routing\JsonApiRouteSubscriber::routes'

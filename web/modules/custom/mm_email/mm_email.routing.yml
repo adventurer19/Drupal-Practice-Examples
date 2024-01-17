@@ -1,0 +1,7 @@
+mm_email.admin_emails:
+  path: '/admin/config/admin-emails'
+  defaults:
+    _form: '\Drupal\mm_email\Form\CustomEmailsConfigForm'
+    _title: 'Admin Emails Configuration'
+  requirements:
+    _permission: 'administer site configuration'

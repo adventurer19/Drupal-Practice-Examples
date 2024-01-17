@@ -1,0 +1,22 @@
+azure_twig.example:
+  path: '/azure-twig/content'
+  defaults:
+    _controller: '\Drupal\azure_twig\Controller\AzureTwigController::content'
+    _title: 'Azure twig Content'
+  requirements:
+    _access: 'TRUE'
+azure_twig.helper:
+  path: '/azure-twig/helper'
+  defaults:
+    _controller: '\Drupal\azure_twig\Utils\AzureHelper::printHello'
+    _title: 'Azure Helper'
+  requirements:
+    _access: 'TRUE'
+azure_twig.helper_two:
+  path: '/azure-twig/helper-name/{name}'
+  defaults:
+    _controller: 'azure_twig.helper:printYourName'
+    _title: 'Azure Helper With Name'
+    name: Default name
+  requirements:
+    _access: 'TRUE'

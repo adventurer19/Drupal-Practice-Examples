@@ -1,0 +1,8 @@
+bank_consult_twig:
+  path: '/bank-consult-twig'
+  defaults:
+    _controller: 'Drupal\bank_consult_twig\Controller\TwigDemoController::index'
+    custom_arg: 12
+    _title: 'Bank Consult Twig Demo'
+  requirements:
+    _access: 'TRUE'

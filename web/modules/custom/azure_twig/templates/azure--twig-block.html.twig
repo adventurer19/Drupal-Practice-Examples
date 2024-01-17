@@ -1,0 +1,19 @@
+{% extends "@azure_twig/azure--layout-block.html.twig" %}
+{% block page_bottom %}
+    <p>This is page button template -> {{ name ?? 'No name' }} , {{ age ?? 'No age' }}</p>
+{% endblock %}
+
+{% block content %}
+    <div style="background: aquamarine">
+
+        <p>Here this line is coming from children</p>
+        <div>
+            Now this is content from parent -> :
+            {{ parent() }}
+        </div>
+    </div>
+
+{% endblock %}
+{% block header %}
+    {% include '@azure_twig/azure--header-block.html.twig' %}
+{% endblock %}

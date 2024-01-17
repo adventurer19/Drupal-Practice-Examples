@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Custom layout template with blocks using {% block %} and {% endblock %}.
+ *
+ * Available blocks:
+ * - page_top: Content for the page_top block.
+ * - content: The main content block.
+ * - sidebar: The sidebar content block.
+ * - page_bottom: Content for the page_bottom block.
+ */
+#}
+
+<div class="layout">
+    <div class="page-top">
+        {% block header %}
+            {# Default content for page_top block #}
+            {{ 'Default Page Top Content' }}
+        {% endblock %}
+    </div>
+
+    <div class="content">
+        {% block content %}
+            {{  'This is coming from layout default value' }}
+            {{ 'Default Main Content' }}
+        {% endblock %}
+    </div>
+
+    <div class="sidebar">
+        {% block sidebar %}
+            {# Default content for sidebar block #}
+            {{ 'Default Sidebar Content' }}
+        {% endblock %}
+    </div>
+
+    <div class="page-bottom">
+        {% block page_bottom %}
+            {# Default content for page_bottom block #}
+            {{ 'Default Page Bottom Content' }}
+        {% endblock %}
+    </div>
+</div>

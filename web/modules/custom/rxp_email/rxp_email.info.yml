@@ -1,0 +1,4 @@
+name: RXP EMAILS
+description: 'Email services RXP'
+type: module
+core_version_requirement: ^10

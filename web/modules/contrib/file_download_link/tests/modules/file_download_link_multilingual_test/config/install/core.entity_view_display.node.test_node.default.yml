@@ -1,0 +1,55 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.test_node.field_image
+    - field.field.node.test_node.field_media
+    - node.type.test_node
+  module:
+    - file_download_link
+    - file_download_link_media
+    - user
+id: node.test_node.default
+targetEntityType: node
+bundle: test_node
+mode: default
+content:
+  field_image:
+    type: file_download_link
+    label: above
+    settings:
+      link_text: '[node:field_image:alt] ([file:size])'
+      link_title: ''
+      new_tab: true
+      force_download: true
+      custom_classes: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_media:
+    type: file_download_link_media
+    label: above
+    settings:
+      link_text: '[media:name]|[media:field_description] ([file:size])'
+      link_title: ''
+      new_tab: true
+      force_download: true
+      custom_classes: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_media_un:
+    type: file_download_link_media
+    label: above
+    settings:
+      link_text: '[media:name]|[media:field_description] ([file:size])'
+      link_title: ''
+      new_tab: true
+      force_download: true
+      custom_classes: ''
+    third_party_settings: { }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  links: true

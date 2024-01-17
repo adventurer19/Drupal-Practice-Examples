@@ -1,0 +1,5 @@
+name: RXP CONFIG
+type: module
+core_version_requirement: ^10
+description: 'This is a module with demo and training purpose.'
+configure: rxp_config.settings_form

@@ -1,0 +1,3 @@
+name: Bank Consult Twig Demo Module
+type: module
+core_version_requirement: ^9 | ^10

@@ -1,0 +1,16 @@
+name: File Download Link Multilingual Test
+description: "Test module"
+package: Field
+type: module
+core_version_requirement: ^9.3 || ^10
+dependencies:
+  - file_download_link:file_download_link_media
+  - token:token
+  - drupal:node
+  - drupal:language
+  - drupal:content_translation
+
+# Information added by Drupal.org packaging script on 2022-11-16
+version: '2.0.3'
+project: 'file_download_link'
+datestamp: 1668626937

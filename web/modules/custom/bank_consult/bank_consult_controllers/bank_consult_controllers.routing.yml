@@ -1,0 +1,75 @@
+bank_consult_controllers.view_builder:
+  path: '/bank-consult-controllers/view-builder'
+  defaults:
+    _entity_list: advertiser
+    _title: 'Advertiser List Builder'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _node_operation_route: true
+bank_consult_controllers.type.view_builder:
+  path: '/bank-consult-controllers/{entity_type}/{example}'
+  defaults:
+    _entity_list: advertiser
+    _title: 'Advertiser List Builder'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    parameters:
+      example:
+        type: entity:{entity_type}
+bank_consult_controllers.entity_delete:
+  path: '/bank-consult-controllers/{entity_type}/{entity}'
+  defaults:
+    _controller: 'Drupal\bank_consult_controllers\Controller\MainController::delete'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    parameters:
+      entity:
+        type: entity:{entity_type}
+
+bank_consult_controllers.upcasting_demo:
+  path: '/bank-consult-controllers/upcasting-demo/{niki_variable}'
+  defaults:
+    _controller: 'Drupal\bank_consult_controllers\Controller\MainController::upcastingDemo'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    parameters:
+      niki_variable:
+        type: niki_variable
+bank_consult_controllers.upcasting_demo_validation:
+  path: '/bank-consult-controllers/upcasting-demo/validation/{niki_variable}'
+  defaults:
+    _controller: 'Drupal\bank_consult_controllers\Controller\MainController::upcastingDemo'
+  requirements:
+    _permission: 'administer site configuration'
+    niki_variable: '\d+'
+  options:
+    parameters:
+      niki_variable:
+        type: niki_variable
+bank_consult_controllers.upcasting_no_need_of_param_converter_for_existing_entity:
+  path: '/bank-consult-controllers/upcasting-demo/entity/{advertiser}'
+  defaults:
+    _controller: 'Drupal\bank_consult_controllers\Controller\MainController::upcastingWithEntityParam'
+    _title: 'ParamConverterExplicitWithExistingEntity'
+  requirements:
+    _permission: 'administer site configuration'
+bank_consult_controllers.index:
+  path: '/bank-consult-controllers/index/{json_data_model}'
+  defaults:
+    _controller: 'Drupal\bank_consult_controllers\Controller\MainController::index'
+    _title: 'Custom ParamConverter'
+    api_version: version 0.1
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    parameters:
+      json_data_model:
+        type: api_data_model
+
+#  upcastingDemo
+#    _node_operation_route: true
+#    /{entity_type}/{example}

@@ -1,0 +1,4 @@
+name: Access Control RXP
+type: module
+core_version_requirement: ^10
+description: 'Access control check module for training purposes.'

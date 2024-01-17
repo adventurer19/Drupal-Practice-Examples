@@ -1,0 +1,19 @@
+{# ** @file modules/custom/bank_consult_advetiser/templates/advertiser.html.twig
+ *
+ * Default theme implementation to present advertiser data.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *          content.field_name to access public fields
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_advertiser()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('advertiser') }}>
+    {% if content %}
+        {{- content -}}
+    {% endif %}
+</div>

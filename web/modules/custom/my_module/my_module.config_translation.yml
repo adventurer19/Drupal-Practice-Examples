@@ -1,0 +1,5 @@
+my_module.config_settings:
+  title: 'My module advanced settings'
+  base_route_name: my_module.config_settings
+  names:
+    - my_module.settings

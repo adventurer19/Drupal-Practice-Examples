@@ -1,0 +1,8 @@
+<h1>H1</h1>
+{{ dump() }}
+{% for post in posts %}
+        {% block post %}
+                <h1>{{ post.title }}</h1>
+                <p>{{ post.body }}</p>
+        {% endblock %}
+{% endfor %}

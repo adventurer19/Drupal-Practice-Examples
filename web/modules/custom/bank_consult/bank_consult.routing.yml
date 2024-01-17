@@ -1,0 +1,9 @@
+bank_consult.person_settings:
+  path: /admin/config/bank-consult/person-settings
+  defaults:
+    _title: Person settings
+    _form: '\Drupal\bank_consult\Form\BankConsultPersonSettingsForm'
+  requirements:
+    _permission: 'administer bank consult,administer bank consult personal settings'
+  options:
+    _admin_route: TRUE

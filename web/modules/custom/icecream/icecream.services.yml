@@ -1,0 +1,7 @@
+services:
+# It's a widely recommended practice to begin service names with the module name as a prefix,
+# followed by the specific service name, in our case, 'example.icecream'.
+  icecream.scoop:
+    class: Drupal\icecream\Services\Scoopdb
+    arguments: ['@database']
+

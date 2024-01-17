@@ -1,0 +1,3 @@
+services:
+  azure_twig.helper:
+    class: 'Drupal\azure_twig\Utils\AzureHelper'

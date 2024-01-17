@@ -1,0 +1,21 @@
+entity.contact.collection:
+  title: 'Advertiser Entities'
+  route_name: entity.advertiser.collection
+  base_route: system.admin_content
+  weight: -10
+bank_consult_advertiser.configuration_settings:
+  route_name: bank_consult_advertiser.configuration_settings
+  title: Settings
+  base_route: bank_consult_advertiser.configuration_settings
+entity.advertiser.edit_form:
+  route_name: entity.advertiser.edit_form
+  base_route: entity.advertiser.canonical
+  title: Edit
+entity.advertiser.delete_form:
+  route_name: entity.advertiser.delete_form
+  base_route: entity.advertiser.canonical
+  title: Delete
+entity.advertiser.canonical:
+  route_name: entity.advertiser.canonical
+  base_route: entity.advertiser.canonical
+  title: 'View'

@@ -1,0 +1,13 @@
+services:
+# It's a widely recommended practice to begin service names with the module name as a prefix,
+# followed by the specific service name, in our case, 'example.icecream'.
+  example.icecream:
+    class: Drupal\icecream\Services\Scoopdb
+    arguments: ['@database']
+  example.unistaller:
+    class: Drupal\example\ExampleModuleUninstaller
+    tags:
+      - { name: module_install.uninstall_validator }
+  example.helper:
+    class: Drupal\example\Utils\ExampleHelper
+

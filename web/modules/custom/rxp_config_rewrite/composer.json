@@ -1,0 +1,27 @@
+{
+    "name": "drupal/rxp_config_rewrite",
+    "description": "Just a module with training purposes.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "Drupal\\RxpConfigRewrite\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nikolay",
+            "email": "nikolay.penchev@ffw.com"
+        }
+    ],
+    "require": {
+        "drupal/config_rewrite": "^1.5",
+        "drupal/devel": "^5.0"
+    },
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    }
+}

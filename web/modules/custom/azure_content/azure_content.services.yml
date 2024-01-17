@@ -1,0 +1,5 @@
+services:
+  azure_content.event_subsriber:
+    class: '\Drupal\azure_content\EventSubscriber\ContentSubscriber'
+    tags:
+      - { name: event_subscriber }

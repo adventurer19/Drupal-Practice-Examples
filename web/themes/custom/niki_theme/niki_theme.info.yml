@@ -1,0 +1,6 @@
+name: Niki theme
+type: theme
+core_version_requirement: ^9 || ^10
+base theme: olivero
+libraries:
+  - niki_theme/niki-p

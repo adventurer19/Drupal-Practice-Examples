@@ -1,0 +1,4 @@
+name: RXP Form Module
+type: module
+core_version_requirement: ^10
+description: RXP Module form.

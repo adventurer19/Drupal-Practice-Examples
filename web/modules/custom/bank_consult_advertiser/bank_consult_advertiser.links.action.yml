@@ -1,0 +1,6 @@
+entity.advertiser_type.add_form:
+  route_name: entity.advertiser_type.add_form
+  title: 'Create advertiser type'
+  appears_on:
+    - entity.advertiser_type.collection
+  weight: -10

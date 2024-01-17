@@ -1,0 +1,4 @@
+type: module
+name: rxp install
+core_version_requirement: ^10
+weight: -1

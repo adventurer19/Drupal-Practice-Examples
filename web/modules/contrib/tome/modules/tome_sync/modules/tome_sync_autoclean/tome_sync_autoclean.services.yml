@@ -1,0 +1,6 @@
+services:
+  tome_sync_autoclean.export_event_subscriber:
+    class: Drupal\tome_sync_autoclean\EventSubscriber\ExportEventSubscriber
+    arguments: ['@tome_sync.storage.content', '@config.storage.sync', '@tome_sync.file_sync', '@file_system']
+    tags:
+    - { name: event_subscriber }

@@ -1,0 +1,4 @@
+bank_consult.base:
+  title: 'Settings'
+  route_name: bank_consult.person_settings
+  base_route: bank_consult.person_settings

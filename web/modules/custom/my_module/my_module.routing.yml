@@ -1,0 +1,7 @@
+my_module.config_settings:
+  path: '/admin/config/mymodule'
+  defaults:
+    _form: '\Drupal\my_module\Form\MySettingsForm'
+    _title: 'MyModule Configuration'
+  requirements:
+    _permission: 'administer site configuration'

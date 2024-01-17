@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * @file
+ * Module File.
+ */
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function rxp_email_node_insert(EntityInterface $entity): void {
+  rxp_email_email_call_back($entity, 'insert');
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function rxp_email_node_presave(EntityInterface $entity): void {
+  rxp_email_email_call_back($entity, 'presave');
+}
+
+/**
+ * Callback to perform email sending.
+ */
+function rxp_email_email_call_back(EntityInterface $entity, string $key): void {
+  /** @var \Drupal\rxp_email\Utils\EmailController $mail_controller */
+  $mail_controller = \Drupal::service('rxp_email.email_controller');
+  $mail_controller->sendEmails($key, $entity);
+}
+
+/**
+ * Implements hook_mail().
+ */
+function rxp_email_mail($key, &$message, $params): void {
+  $message['to'] = 'nikolay@example.com';
+  /** @var \Drupal\Core\Render\RendererInterface $renderer */
+  $renderer = \Drupal::service('renderer');
+  $render_array = [
+    '#markup' => 'hello',
+  ];
+  $mark_up = $renderer->render($render_array);
+  // $renderer->renderPlain()
+  $msg = Html::escape('<h1>h1 is here</h1>');
+  $message['body'] = [
+    'first' => $mark_up,
+    'second' => $msg,
+  ];
+
+  $a = 1;
+  ;
+}

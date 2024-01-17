@@ -1,0 +1,27 @@
+/* Adjust the layout for the sidebars and footer */
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Ensure full viewport height */
+}
+.layout-main-wrapper {
+  display: flex;
+}
+
+main {
+  flex-basis: 50%;
+  gap: 2rem;
+}
+
+.layout-sidebar-left,
+.layout-sidebar-right {
+  flex-basis: 50%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  background-image: none; /* This will remove the background image */
+  background-color: #fff; /* Use the hexadecimal code for white */
+}

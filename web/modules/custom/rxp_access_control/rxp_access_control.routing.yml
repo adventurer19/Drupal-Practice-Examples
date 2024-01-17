@@ -1,0 +1,79 @@
+rxp_access_control.node:
+  path: '/rxp-access-control/node/{node}'
+  defaults:
+    _controller: '\Drupal\rxp_access_control\Controller\RXPAccessControlController::index'
+  requirements:
+    _entity_access: 'node.view'
+    node: '\d+'
+  options:
+    parameters:
+      node:
+        type: 'entity:node'
+
+# Custom access via a method on the controller class .
+# One approach is to add a custom access callback method to the controller
+#
+
+
+
+# Entity based access control logic
+# In case where a route is for an entity, you might want to base the access control
+# off the specific entity type.For example a user who has permissions to edit their own
+# nodes but not another user's node . To do this you can use the requirements._entity_access or
+# to use the requirements_entity_create_access
+# _entity_access must be used with values of view , update delete.
+# View, update, delete are operations
+# The pattern is {node_type}.{operation}
+#
+# There is also a special case of _entity_create_access
+# To check if a user has 'create' access use _entity_create_access. This
+# supports specific bundle as   either
+
+#
+# The actual access checking logic is performed by the access handler for the entity.
+# This is usually defined as part of the entity type's annotation.
+
+#
+#
+#rxp_access_control.example:
+#  path: '/rxp-access-control/example'
+#  defaults:
+#    _controller: '\Drupal\journey\Controller\ExampleController::build'
+#    _title: 'Access Control Test'
+#  requirements:
+#    _permission: 'access content'
+
+
+
+
+
+
+# 1. _permission: 'access content overview,view all revisions
+# Here if we place permissions with a comma , we are require all permission to match.
+#_permission: 'access content overview+view all revisions
+# Here is any of the listed permission is required in order to pass the access check.
+
+
+    # Require that a user has the 'administrator' role in order to view
+    # this route.
+#    _role: 'administrator'
+
+# use roles if we provide a lot of custom code, and we need to be more granular
+# keep in mind that roles are configuration entities , therefore we may not have it on all
+# environments
+#
+# use permissions if you want your code to be less fragile .
+
+#  Grant (or deny) access to any logged-in user
+
+#requirements._user_is_logged_in: 'TRUE' => Authenticated users only
+#requirements._user_is_logged_in: 'FALSE' => Anonymous users only
+
+
+#   Also it's possible to bypass the access control for a route .
+# you can bypass a route for everyone and have the route be always
+# accessible to everyone using the requirements._access
+#
+# 'requirements:'
+#   _access: 'TRUE'
+

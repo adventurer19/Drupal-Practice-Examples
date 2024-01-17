@@ -1,0 +1,4 @@
+rxp_install:
+  title: 'Nikolay'
+  route_name: rxp_install.install_form
+  group: 'block'

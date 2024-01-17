@@ -1,0 +1,13 @@
+name: 'Tome Sync Autoclean (Experimental)'
+type: module
+description: 'Automatically deletes files that are unused. This module could definitely lead to data loss, use with caution!'
+core: 8.x
+core_version_requirement: ^8 || ^9 || ^10
+package: Tome
+dependencies:
+  - tome:tome_sync
+
+# Information added by Drupal.org packaging script on 2023-04-05
+version: '8.x-1.11'
+project: 'tome'
+datestamp: 1680663805

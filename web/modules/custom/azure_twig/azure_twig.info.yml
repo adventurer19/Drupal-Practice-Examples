@@ -1,0 +1,5 @@
+name: 'azure_twig'
+type: module
+description: 'Just a random description.'
+package: Custom
+core_version_requirement: ^10

@@ -1,0 +1,7 @@
+services:
+  rxp_render.coffe_helper:
+    class: '\Drupal\rxp_render\utils\CoffeHelper'
+  rxp_render.demo_event_subscriber:
+    class: '\Drupal\rxp_render\EventSubscriber\DemoEventSubscriber'
+    tags:
+      - { name: 'event_subscriber' }

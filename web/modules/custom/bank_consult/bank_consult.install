@@ -1,0 +1,13 @@
+<?php
+
+use Drupal\bank_consult\Form\BankConsultPersonSettingsForm;
+
+
+/**
+ * Implements hook_uninstall().
+ */
+function bank_consult_uninstall(): void {
+  \Drupal::configFactory()
+    ->getEditable(BankConsultPersonSettingsForm::BANK_CONSULT_PERSON_SETTINGS_NAME)
+    ->delete();
+}

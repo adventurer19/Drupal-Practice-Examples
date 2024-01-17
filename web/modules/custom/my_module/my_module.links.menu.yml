@@ -1,0 +1,8 @@
+my_module.main_menu:
+  title: 'My module configuration'
+  route_name: my_module.config_settings
+  parent: system.admin_config
+my_module.main_first:
+  title: 'First Item'
+  route_name: my_module.config_settings
+  parent: my_module.main_menu

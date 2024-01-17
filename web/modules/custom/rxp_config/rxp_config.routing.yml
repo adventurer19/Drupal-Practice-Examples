@@ -1,0 +1,7 @@
+rxp_config.settings_form:
+  path: '/admin/config/rxp-config'
+  defaults:
+    _form: '\Drupal\rxp_config\Form\RXPConfigSettingsForm'
+    _title: 'RXP Config Settings'
+  requirements:
+    _permission: 'administer site configuration'

@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function rxp_preprocess_preprocess_html(&$variables){
+  $variables['attributes']['class'][] = 'demo';
+  $a = 1;
+}
+
+//template_preprocess_page
+//template_preprocess_node
+//template_preprocess_html

@@ -1,0 +1,159 @@
+<?php
+
+/**
+ * @file
+ * This is the module file.
+ */
+
+use Drupal\bank_consult_advertiser\Entity\AdvertiserType;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+
+/**
+ * Implements hook_contextual_links_view_alter().
+ */
+function bank_consult_advertiser_contextual_links_view_alter(&$element, $items) {
+//  $element['#links']['entityadvertiseredit-form']['ajax'] = [
+//    'dialogType' => 'modal',
+//    'dialog' => ['height' => 400, 'width' => 700],
+//  ];
+//  $element['#links']['entityadvertiseredit-form']['title'] = 'demo new';
+//  $a = 1;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function bank_consult_advertiser_theme($existing, $type, $theme, $path): array {
+  return [
+    'advertiser' => [                            // the entity id
+      'path' => $path . '/templates',
+      // template directory in module or theme
+      'template' => 'advertiser',
+      // defines base template as /artwork.html.twig
+      'render element' => 'elements',
+
+      // Theme API call to define the container of the entity in the render array
+      // The entity will be prefixed with a hash sign as ['elements']['#artwork']
+    ],
+    'advertiser__full' => [
+      'template' => 'advertiser',
+      'base hook' => 'advertiser',
+    ],
+    'advertiser__teaser' => [
+      'base hook' => 'advertiser',
+    ],
+  ];
+}
+
+/** @file modules/custom/bank_consult_advertiser/templates/advertiser.html.twig
+ * Prepares variables for templates.
+ * implements hook_preprocess_HOOK()
+ */
+function template_preprocess_advertiser(&$variables): void {
+  // Helpful $content variable for templates.
+  $variables['content'] = [];
+
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+  /** @var \Drupal\bank_consult_advertiser\Entity\Advertiser $entity */
+  $entity = $variables['elements']['#advertiser'];
+  $variables['advertiser'] = $entity;
+  $variables['label'] = $entity->label();
+  $variables['url'] = $entity->toUrl()->toString();
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function bank_consult_advertiser_theme_suggestions_advertiser_alter(array &$suggestions, array $variables) {
+  if ($advertiser = $variables['elements']['#advertiser']) {
+    if (isset($variables['elements']['#view_mode'])) {
+      $suggestions[] = 'advertiser__' . $variables['elements']['#view_mode'];
+    }
+  }
+}
+
+//
+///**
+// * Implements hook_theme_suggestions_HOOK().
+// */
+//function bank_consult_advertiser_theme_suggestions_advertiser(array $variables) {
+//  $a = 1;
+//  $suggestions = [];
+//  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+//  $suggestions[] = 'advertiser__' . $sanitized_view_mode;
+//  return $suggestions;
+//
+//}
+
+/**
+ * Implements hook_block_view_BASE_BLOCK_ID_alter().
+ */
+function bank_consult_advertiser_block_view_BASE_BLOCK_ID_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {}
+
+/**
+ * Implements hook_block_view_alter().
+ */
+function bank_consult_advertiser_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
+  $a = 1;
+  //\Drupal\bank_consult_advertiser\Entity\Advertiser::load(1)
+  //  if ($block->label() === 'Main page content') {
+  // todo show examples later
+//  $build['#contextual_links']['advertiser'] = [
+//    'route_parameters' => ['advertiser' => '1'],
+//  ];
+  //  }
+}
+
+//
+//function menu_ui_block_view_system_menu_block_alter(array &$build, BlockPluginInterface $block) {
+//  // Add contextual links for system menu blocks.
+//  $menus = menu_list_system_menus();
+//  $menu_name = $block->getDerivativeId();
+
+//  }
+//}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function bank_consult_advertiser_entity_extra_field_info(): array {
+  $extra = [];
+  $description = t('Node module element');
+  foreach (AdvertiserType::loadMultiple() as $bundle) {
+    $extra['advertiser'][$bundle->id()]['display']['links'] = [
+      'label' => t('Links'),
+      'description' => $description,
+      'weight' => 100,
+      'visible' => TRUE,
+    ];
+  }
+
+  return $extra;
+}
+
+/**
+ * Implements hook_help().
+ */
+function bank_consult_advertiser_help($route_name, RouteMatchInterface $route_match): string {
+  switch ($route_name) {
+    case 'help.page.bank_consult_advertiser':
+      return '<h3>' . t('Bank consult advertiser') . '</h3>' .
+        '<p>' . t('My Module provides additional functionality to enhance your Drupal site.') . '</p>' .
+        '<h3>' . t('Configuration settings') . '</h3>' .
+        '<p>' . t('Visit the <a href=":config">configuration page</a> to customize My Module settings.', [
+          ':config' => Url::fromRoute('bank_consult_advertiser.configuration_settings')
+            ->toString(),
+        ]) . '</p>';
+
+    // Add more cases as needed for different help topics.
+
+    default:
+      // No help found for this module.
+      return '';
+  }
+}

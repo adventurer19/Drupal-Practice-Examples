@@ -1,0 +1,47 @@
+name: drupalonfire
+recipe: drupal10
+
+# Default configuration.
+config:
+  webroot: web
+  xdebug: false
+  php: '8.1'
+
+# Service configuration.
+services:
+  appserver:
+    run_as_root:
+      - touch /tmp/xdebug.log && chown www-data:www-data /tmp/xdebug.log
+      - touch /tmp/php_error.log && chown www-data:www-data /tmp/php_error.log
+    overrides:
+      environment:
+        XDEBUG_MODE: 'debug,develop'
+        PHP_IDE_CONFIG: "serverName=appserver"
+        XDEBUG_SESSION_START: lando
+
+  # Memcache configuration.
+  memcache:
+    type: memcached
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+
+tooling:
+  xdebug-on:
+    service: appserver
+    description: Enable Xdebug.
+    user: root
+    cmd:
+      - docker-php-ext-enable xdebug && kill -USR2 $(pgrep -o php-fpm) > /dev/null 2>&1 || /etc/init.d/apache2 reload
+      - tput setaf 2 && echo "Xdebug On" && tput sgr 0 && echo
+  xdebug-off:
+    service: appserver
+    description: Disable Xdebug.
+    user: root
+    cmd:
+      - rm /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && kill -USR2 $(pgrep -o php-fpm) > /dev/null 2>&1 || /etc/init.d/apache2 reload
+      - tput setaf 1 && echo "Xdebug Off" && tput sgr 0 &&
+proxy:
+  mailhog:
+    - mail.lemp.lndo.site

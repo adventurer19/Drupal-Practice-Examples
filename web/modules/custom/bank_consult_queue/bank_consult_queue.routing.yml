@@ -1,0 +1,7 @@
+bank_consult_queue.form:
+  path: '/bank-consult-form-que'
+  defaults:
+    _form: '\Drupal\bank_consult_queue\Form\BankConsultQueueForm'
+    _title: 'Bank Consult Queue Form'
+  requirements:
+    _permission: 'administer site configuration'

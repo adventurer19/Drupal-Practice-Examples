@@ -1,0 +1,5 @@
+name: Bank Consult Advertiser
+type: module
+core_version_requirement: ^10
+description: 'This is a module for training purposes.Showing how to create a bundle-less content entity.'
+configure: bank_consult_advertiser.configuration_settings

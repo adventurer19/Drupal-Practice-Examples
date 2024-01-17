@@ -1,0 +1,28 @@
+<?php
+
+
+/**
+ * Implements hook_theme().
+ */
+function bank_consult_twig_theme($existing, $type, $theme, $path) {
+  return [
+    'bank_consult_demo_first' => [
+//      'template' => 'bank-consult-twig-demo-first',
+      'template' => 'index',
+      'variables' => [
+        'variable1' => 'Yet another default text.',
+        'variable2' => 0,
+        'item' => 'item',
+        'variable3' => [0, 0, 0],
+        'posts' =>[
+          'title' => 'Nikolay',
+          'body' => ' Just a text',
+        ],
+      ],
+    ],
+    'bank_consult_demo_second' => [
+      'render element' => 'children',
+      'template' => 'bank-consult-twig-demo-second',
+    ],
+  ];
+}

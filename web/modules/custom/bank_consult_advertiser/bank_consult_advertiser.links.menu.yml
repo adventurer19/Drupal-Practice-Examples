@@ -1,0 +1,5 @@
+entity.advertiser.collection:
+  title: 'Advertiser Types'
+  parent: system.admin_structure
+  route_name: entity.advertiser_type.collection
+  description: 'Create advertiser types'
